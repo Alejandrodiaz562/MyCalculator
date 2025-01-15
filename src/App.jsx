@@ -8,11 +8,15 @@ function App() {
   
   return (
     <div className="App">
-      <input type="text" value={operation} className="show-result"/>
+      <div className="showResult-container">
+            <input type="text" value={operation} className="show-result input"/>
+            <input type="text" value={operation} className="preview-result input" />
+      </div>
+      
       <div className='btn-container'>
             <Button value={"Limpiar"} setOperation={setOperation} operation={operation} className="btn limpiar"></Button>
             <Button value={"Borrar"} setOperation={setOperation} operation={operation} className="btn borrar"></Button>
-            
+            <Button value={"+/-"} setOperation={setOperation} operation={operation} className="btn borrar"></Button>
             <Button value={"/"} setOperation={setOperation} operation={operation} className="btn"></Button>
         </div>
         <div className='btn-container'>
