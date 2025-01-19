@@ -1,7 +1,6 @@
 const OperatorBtn = ({value, operation, setIsVisible, setOperation}) => {
     const handleClick = (e)=> {
-        console.log("hello" + value)
-
+        
         const target = e.target.value
         const operators = ["/", "*", "+", "-"]
         const last = operation.slice(-1)

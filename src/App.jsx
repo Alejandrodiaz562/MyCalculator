@@ -22,7 +22,7 @@ function App() {
       <div className="btn-containers">
       <div className='btn-container'>
             <AcBtn setOperation={setOperation} setPreview={setPreview} setIsVisible={setIsVisible} setOperated={setOperated}></AcBtn>
-            <DeleteBtn setOperation={setOperation} operation={operation}></DeleteBtn>
+            <DeleteBtn setOperation={setOperation} operation={operation} preview={preview} setPreview={setPreview}></DeleteBtn>
             <OperatorBtn value={"/"} operation={operation} setIsVisible={setIsVisible} setOperation={setOperation}></OperatorBtn>
         </div>
         <div className='btn-container'>
