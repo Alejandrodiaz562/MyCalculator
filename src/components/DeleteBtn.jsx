@@ -1,4 +1,4 @@
-const DeleteBtn = ({setOperation, operation, setPreview, setIsVisible, operated, setOperated}) => {
+const DeleteBtn = ({setOperation, operation, setPreview, setIsVisible, operated, setOperated, beforeOperation}) => {
 
     const handleClick = () => {
         const lastOperation = operation.slice(-1)
@@ -6,15 +6,26 @@ const DeleteBtn = ({setOperation, operation, setPreview, setIsVisible, operated,
         const lastWithoutLast = withoutLast.slice(-1)
         const operators = ["/", "*", "+", "-"]
 
-        setOperation(operation.slice(0, -1))
-        if(operators.includes(lastWithoutLast)){
-            setPreview(eval(withoutLast.slice(0, -1)).toString())
-        } else {
-            setPreview(eval(withoutLast).toString())
+        if(operated === false){
+            setOperation(operation.slice(0, -1))
+            if(operators.includes(lastWithoutLast)){
+                setPreview(eval(withoutLast.slice(0, -1)).toString())
+            } else {
+                setPreview(eval(withoutLast).toString())
+            }
+
+            if(!withoutLast.includes("+") && !withoutLast.includes("-") && !withoutLast.includes("*") && !withoutLast.includes("/") && operators.includes(lastOperation)){
+                setIsVisible(false)
+            }
         }
+
+        if(operated === true){
+            setOperation(beforeOperation)
+            setIsVisible(true)
+            setOperated(false)
+        }
+
         
-        if(!withoutLast.includes("+") && !withoutLast.includes("-") && !withoutLast.includes("*") && !withoutLast.includes("/") && operators.includes(lastOperation)){
-            setIsVisible(false)}
         
     }
 

@@ -11,6 +11,7 @@ function App() {
   const [preview, setPreview] = useState("")
   const [isVisible, setIsVisible] = useState(false)
   const [operated, setOperated] = useState(false)
+  const [beforeOperation, setBeforeOperation] = useState("")
 
   
   return (
@@ -22,8 +23,8 @@ function App() {
       <div className="btn-containers">
       <div className='btn-container'>
             <AcBtn setOperation={setOperation} setPreview={setPreview} setIsVisible={setIsVisible} setOperated={setOperated}></AcBtn>
-            <DeleteBtn setOperation={setOperation} operation={operation} setPreview={setPreview} setIsVisible={setIsVisible}></DeleteBtn>
-            <OperatorBtn value={"/"} operation={operation} setIsVisible={setIsVisible} setOperation={setOperation} operated={operated} setOperated={setOperated}></OperatorBtn>
+            <DeleteBtn setOperation={setOperation} operation={operation} setPreview={setPreview} setIsVisible={setIsVisible} operated={operated} setOperated={setOperated} beforeOperation={beforeOperation}></DeleteBtn>
+            <OperatorBtn value={"/"} operation={operation} setIsVisible={setIsVisible} setOperation={setOperation} ></OperatorBtn>
         </div>
         <div className='btn-container'>
             <NumberBtn value={"7"} setOperation={setOperation} operation={operation} setPreview={setPreview} isVisible={isVisible} operated={operated} setOperated={setOperated}></NumberBtn>
@@ -45,7 +46,7 @@ function App() {
         </div>
         <div className='btn-container'>
             <NumberBtn value={"0"} setOperation={setOperation} operation={operation} setPreview={setPreview} isVisible={isVisible} operated={operated} setOperated={setOperated}></NumberBtn>
-            <EqualBtn value={"="} setOperated={setOperated} setOperation={setOperation} setIsVisible={setIsVisible} preview={preview}></EqualBtn>
+            <EqualBtn value={"="} setOperated={setOperated} setOperation={setOperation} setIsVisible={setIsVisible} preview={preview} operation={operation} setBeforeOperation={setBeforeOperation}></EqualBtn>
         </div>
       </div>
       
