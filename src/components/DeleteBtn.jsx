@@ -1,24 +1,20 @@
-const DeleteBtn = ({setOperation, operation, preview, setPreview}) => {
+const DeleteBtn = ({setOperation, operation, setPreview, setIsVisible, operated, setOperated}) => {
 
     const handleClick = () => {
-        console.log("--------------------------------------------")
-        const last = operation.slice(-1)
+        const lastOperation = operation.slice(-1)
         const withoutLast = operation.slice(0, -1)
+        const lastWithoutLast = withoutLast.slice(-1)
         const operators = ["/", "*", "+", "-"]
 
         setOperation(operation.slice(0, -1))
-        if (!operators.includes(last)){
-            console.log("el ultimo elemento no es un operador")
+        if(operators.includes(lastWithoutLast)){
             setPreview(eval(withoutLast.slice(0, -1)).toString())
-            
         } else {
-            console.log("el ulitmo elemento es un operador")
-            setPreview(preview)
+            setPreview(eval(withoutLast).toString())
         }
-
-        if (!withoutLast.includes("+") && !withoutLast.includes("-") && !withoutLast.includes("*") && !withoutLast.includes("/") && operators.includes(last)){
-            setPreview("")
-        }
+        
+        if(!withoutLast.includes("+") && !withoutLast.includes("-") && !withoutLast.includes("*") && !withoutLast.includes("/") && operators.includes(lastOperation)){
+            setIsVisible(false)}
         
     }
 
