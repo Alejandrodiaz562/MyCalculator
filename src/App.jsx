@@ -2,7 +2,7 @@ import AcBtn from "./components/AcBtn";
 import DeleteBtn from "./components/DeleteBtn";
 import OperatorBtn from "./components/OperatorBtn";
 import NumberBtn from "./components/NumberBtn";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import EqualBtn from "./components/EqualBtn";
 
 function App() {
@@ -12,13 +12,131 @@ function App() {
   const [isVisible, setIsVisible] = useState(false)
   const [operated, setOperated] = useState(false)
   const [beforeOperation, setBeforeOperation] = useState("")
+  const [showResultStyle, setShowResultStyle] = useState({})
+  const [showPreviewStyle, setPreviewStyle] = useState({})
+  const operators = ["/", "*", "+", "-"]
+  
+  const inputRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  
+
+  useEffect(()=>{
+    
+  const input = inputRef.current;
+
+    if (isMobile){
+      if (operation.length > 9 && !operators.includes(operation[9])){
+        setShowResultStyle({
+          height: "80px",
+          fontSize: "4em"
+          })
+  
+          setPreviewStyle({
+            height: "40px",
+            fontSize: "2em"
+          })
+
+        input.scrollLeft = input.scrollWidth
+      } 
+
+      if (operation.length > 10) {
+        setShowResultStyle({
+          height: "80px",
+          fontSize: "4em"
+          })
+  
+          setPreviewStyle({
+            height: "40px",
+            fontSize: "2em"
+          })
+          
+        input.scrollLeft = input.scrollWidth
+      }
+
+      if (operation.length < 10) {
+        setShowResultStyle({
+        height: "110px",
+        fontSize: "5.8em"
+        })
+
+        setPreviewStyle({
+          height: "45px",
+          fontSize: "2.5em"
+        })
+      }
+
+    }
+
+    if (isMobile === false){
+      if (operation.length > 9 && !operators.includes(operation[9])){
+        setShowResultStyle({
+          height: "40px",
+          fontSize: "2.2em"
+          })
+  
+        setPreviewStyle({
+          height: "20px",
+          fontSize: "1em"
+        })
+
+        input.scrollLeft = input.scrollWidth
+      } 
+  
+      if (operation.length > 10) {
+        setShowResultStyle({
+          height: "40px",
+          fontSize: "2.2em"
+          })
+  
+        setPreviewStyle({
+          height: "20px",
+          fontSize: "1em"
+        })
+
+        input.scrollLeft = input.scrollWidth
+      }
+  
+      if (operation.length < 10) {
+        setShowResultStyle({
+          height: "60px",
+          fontSize: "3.4em"
+        })
+  
+        setPreviewStyle({
+          height: "30px",
+          fontSize: "1.7em"
+        })
+      }
+    }
+    
 
   
+  }, [isMobile, operation] )
+
+  useEffect(()=>{
+
+    const mediaQuery = window.matchMedia('(max-width: 600px)');
+
+    const handleMediaChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    // Agregar el event listener para escuchar cambios en la media query
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    // Verificar el estado actual de la media query
+    handleMediaChange(mediaQuery);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaChange);
+    };
+  })
+
   return (
     <div className="App">
       <div className="showResult-container">
-            <input type="text" value={operation} className="show-result input"/>
-            <input type="text" value={isVisible ? preview : ""} className="preview-result input" />
+            <input type="text" value={operation} className="show-result input" style={showResultStyle} ref={inputRef}/>
+            <input type="text" value={isVisible ? preview : ""} className="preview-result input" style={showPreviewStyle}/>
       </div>
       <div className="btn-containers">
       <div className='btn-container'>

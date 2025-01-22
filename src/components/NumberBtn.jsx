@@ -5,9 +5,10 @@ const NumberBtn = ({value, setOperation, operation, setPreview, isVisible, opera
         const target = e.target.value
         const last = operation.slice(-1)
         const operators = ["/", "*", "+", "-"]
-        
+
         if(operated === false){
-            
+
+    
             setPreview(eval(operation + target).toString())
             if (operation.length === 0 && target === "0"){
                 return

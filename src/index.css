@@ -4,33 +4,43 @@
     box-sizing: border-box;
 }
 
+html{
+    height: 100%;
+}
+
 body{
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    
 }
 
 .App{
-   
     background-color: rgb(0, 0, 0);
     color: white;
-    border-radius: 5px;
+    border-radius: 5%;
     box-shadow: 0px 0px 200px 10px rgb(128, 21, 190);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px;
-    height: 500px;
+    height: 100vh;
+    width: 25vw;
+    
 }
 
 .showResult-container{
     
     height: 50%;
     padding-top: 20%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    
+}
+
+.show-result{
+    padding-right: 1%;
 }
 
 .input{
@@ -39,18 +49,16 @@ body{
     background-color: black;
     border: none;
     outline: none;
-    color: rgb(228, 228, 228);
+    color: white;
 }
 
 .show-result{
-    height: 30%;
-    font-size: 40px;
-    
+
 }
 
 .preview-result{
-    height: 15%;
-    font-size: 120%;
+    
+    margin-top: 5%;
 }
 
 .btn-containers{
@@ -60,7 +68,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px;
+    padding: 5%;
+    
 }
 
 .btn-container{
@@ -72,7 +81,7 @@ body{
 }
 
 .btn{
-    width: 20%;
+    width: 22%;
     margin: 0 8px;
     outline: none;
     border: none;
@@ -104,7 +113,65 @@ body{
     width: 80%;
 }
 
+@media (max-width: 600px) {
+  
+    .App{
+        border-radius: 0%;
+        height: 100vh;
+        width: 100vw;
+        
+    }
 
+    .show-result{
+    
+    }
 
+    .preview-result{
+        
+    }
+    
+    .btn{
+        font-size: 30px;
+    }
+}
+
+/*@media (min-width: 601px) and (max-width: 1000px) {
+    .App{
+        
+        height: 80vh;
+        width: 60vw;
+    }
+
+    .show-result{
+       
+        height: 30%;
+        font-size: 55px;
+    }
+
+    .preview-result, .btn{
+       
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 1000px) and (min-height: 1300px) {
+    .App{
+        
+        height: 80vh;
+        width: 60vw;    
+    }
+
+    .show-result{
+        
+        height: 30%;
+        font-size: 55px;
+    }
+    
+
+    .preview-result, .btn{
+       
+        font-size: 30px;
+    }
+}
 
 

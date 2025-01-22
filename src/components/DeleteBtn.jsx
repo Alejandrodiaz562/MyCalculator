@@ -24,9 +24,6 @@ const DeleteBtn = ({setOperation, operation, setPreview, setIsVisible, operated,
             setIsVisible(true)
             setOperated(false)
         }
-
-        
-        
     }
 
     return ( <button className={"btn borrar"} onClick={handleClick}>{"X"}</button> );
