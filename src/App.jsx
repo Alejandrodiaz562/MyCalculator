@@ -25,13 +25,13 @@ function App() {
     if (isMobile){
       if (operation.length > 9 && !operators.includes(operation[9])){
         setShowResultStyle({
-          height: "80px",
-          fontSize: "4em"
+          height: "60px",
+          fontSize: "3em"
           })
   
           setPreviewStyle({
-            height: "40px",
-            fontSize: "2em"
+            height: "25px",
+            fontSize: "1.2em"
           })
 
         input.scrollLeft = input.scrollWidth
