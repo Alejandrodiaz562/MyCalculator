@@ -1,3 +1,5 @@
+import { evaluate } from 'mathjs';
+
 const NumberBtn = ({value, setOperation, operation, setPreview, isVisible, operated, setOperated}) => {
 
     const handleClick = (e)=> {
@@ -8,7 +10,7 @@ const NumberBtn = ({value, setOperation, operation, setPreview, isVisible, opera
 
         if(operated === false){
 
-            setPreview(eval(operation + target).toString())
+            setPreview(evaluate(operation + target).toString())
             if (operation.length === 0 && target === "0"){
                 return
             }
@@ -23,7 +25,7 @@ const NumberBtn = ({value, setOperation, operation, setPreview, isVisible, opera
             
             if(operators.includes(last)){
                 setOperation(operation + target)
-                setPreview(eval(operation + target).toString())
+                setPreview(evaluate(operation + target).toString())
                 setOperated(false)
             } else {
                 if(target !== "0"){
