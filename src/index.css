@@ -20,23 +20,21 @@ body{
 .App{
     background-color: rgb(0, 0, 0);
     color: white;
-    border-radius: 5%;
+    border-radius: 3%;
     box-shadow: 0px 0px 200px 10px rgb(128, 21, 190);
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
     width: 25vw;
     
 }
 
 .showResult-container{
-    
-    height: 50%;
+    height: 40%;
     padding-top: 20%;
-    padding-left: 5%;
-    padding-right: 5%;
-    
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .show-result{
@@ -52,25 +50,21 @@ body{
     color: white;
 }
 
-.show-result{
-
-}
-
 .preview-result{
-    
     margin-top: 5%;
 }
 
 .btn-containers{
-    height: 50%;
+    height: 60%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-top: 10%;
+    padding-left: 2%;
+    padding-right: 2%;
     padding-bottom: 10%;
-    
+    border-top: 1px solid rgb(41, 37, 37); 
 }
 
 .btn-container{
@@ -78,7 +72,6 @@ body{
     display: flex;
     justify-content: center;
     height: 15%;
-
 }
 
 .btn{
@@ -91,14 +84,15 @@ body{
     color: white;
     font-size: 20PX;
     text-align: center;
-   
-
 }
 
 .btn:hover{
+    cursor: pointer;
+}
+
+.btn:active{
     background-color: rgb(144, 136, 148);
     color: white;
-    cursor: pointer;
     transform: scale(1.1);
 }
 
@@ -123,16 +117,8 @@ body{
         
     }
 
-    .show-result{
-    
-    }
-
-    .preview-result{
-        
-    }
-
     .btn-containers{
-        padding-bottom: 20%;
+        padding-bottom: 15%;
     }
     
     .btn{
