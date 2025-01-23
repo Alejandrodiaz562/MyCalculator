@@ -39,13 +39,13 @@ function App() {
 
       if (operation.length > 10) {
         setShowResultStyle({
-          height: "80px",
-          fontSize: "4em"
+          height: "60px",
+          fontSize: "3em"
           })
   
           setPreviewStyle({
-            height: "40px",
-            fontSize: "2em"
+            height: "25px",
+            fontSize: "1.2em"
           })
           
         input.scrollLeft = input.scrollWidth
@@ -53,13 +53,13 @@ function App() {
 
       if (operation.length < 10) {
         setShowResultStyle({
-        height: "110px",
-        fontSize: "5.8em"
+        height: "80px",
+        fontSize: "4em"
         })
 
         setPreviewStyle({
-          height: "45px",
-          fontSize: "2.5em"
+          height: "40px",
+          fontSize: "2em"
         })
       }
 
@@ -110,7 +110,7 @@ function App() {
 
   useEffect(()=>{
 
-    const mediaQuery = window.matchMedia('(max-width: 600px)');
+    const mediaQuery = window.matchMedia('(max-width: 400px)');
 
     const handleMediaChange = (event) => {
       setIsMobile(event.matches);
