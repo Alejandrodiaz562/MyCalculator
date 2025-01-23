@@ -4,9 +4,9 @@ import OperatorBtn from "./components/OperatorBtn";
 import NumberBtn from "./components/NumberBtn";
 import { useState, useEffect, useRef } from "react";
 import EqualBtn from "./components/EqualBtn";
+import PointBtn from "./components/PointBtn";
 
 function App() {
-
   const [operation, setOperation] = useState("")
   const [preview, setPreview] = useState("")
   const [isVisible, setIsVisible] = useState(false)
@@ -15,14 +15,12 @@ function App() {
   const [showResultStyle, setShowResultStyle] = useState({})
   const [showPreviewStyle, setPreviewStyle] = useState({})
   const operators = ["/", "*", "+", "-"]
-  
   const inputRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
   
-
   useEffect(()=>{
     
-  const input = inputRef.current;
+    const input = inputRef.current;
 
     if (isMobile){
       if (operation.length > 9 && !operators.includes(operation[9])){
@@ -72,7 +70,7 @@ function App() {
         setShowResultStyle({
           height: "40px",
           fontSize: "2.2em"
-          })
+        })
   
         setPreviewStyle({
           height: "20px",
@@ -108,9 +106,6 @@ function App() {
         })
       }
     }
-    
-
-  
   }, [isMobile, operation] )
 
   useEffect(()=>{
@@ -164,6 +159,8 @@ function App() {
         </div>
         <div className='btn-container'>
             <NumberBtn value={"0"} setOperation={setOperation} operation={operation} setPreview={setPreview} isVisible={isVisible} operated={operated} setOperated={setOperated}></NumberBtn>
+            <PointBtn value={"."} operation={operation} setOperation={setOperation}></PointBtn>
+            
             <EqualBtn value={"="} setOperated={setOperated} setOperation={setOperation} setIsVisible={setIsVisible} preview={preview} operation={operation} setBeforeOperation={setBeforeOperation}></EqualBtn>
         </div>
       </div>

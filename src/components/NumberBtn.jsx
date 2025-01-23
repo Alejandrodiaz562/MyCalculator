@@ -8,7 +8,6 @@ const NumberBtn = ({value, setOperation, operation, setPreview, isVisible, opera
 
         if(operated === false){
 
-    
             setPreview(eval(operation + target).toString())
             if (operation.length === 0 && target === "0"){
                 return
